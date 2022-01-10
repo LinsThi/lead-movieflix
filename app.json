@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "lead-movieflix",
+    "slug": "lead-movieflix",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "lead-movieflix"
+}
