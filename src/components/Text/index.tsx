@@ -8,9 +8,14 @@ interface NewTextProps extends TextProps {
   fontColor?: string;
 }
 
-export function NewText({ fontSize = 18, fontColor, children }: NewTextProps) {
+export function NewText({
+  fontSize = 18,
+  fontColor,
+  children,
+  ...rest
+}: NewTextProps) {
   return (
-    <S.Text fontSize={fontSize} fontColor={fontColor}>
+    <S.Text fontSize={fontSize} fontColor={fontColor} {...rest}>
       {children}
     </S.Text>
   );
