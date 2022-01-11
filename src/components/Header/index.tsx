@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 import * as S from './styles';
@@ -5,9 +6,14 @@ import * as S from './styles';
 interface HeaderProps {
   enabledNavigation?: boolean;
   options?: any;
+  navigation?: any;
 }
 
-export function Header({ enabledNavigation, options }: HeaderProps) {
+export function Header({
+  enabledNavigation,
+  options,
+  navigation,
+}: HeaderProps) {
   return (
     <S.Container>
       <S.ContainerButton>
@@ -32,7 +38,7 @@ export function Header({ enabledNavigation, options }: HeaderProps) {
 
       {enabledNavigation && (
         <S.ContainerPage>
-          <S.Button>
+          <S.Button onPress={() => navigation.openDrawer()}>
             <S.IconButton iconType="ionicons" name="ios-menu-sharp" />
           </S.Button>
 
