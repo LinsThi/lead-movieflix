@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, { useRef, useState } from 'react';
 import * as Animatable from 'react-native-animatable';
@@ -6,6 +7,7 @@ import { Button } from '~/components/Button';
 import { Input } from '~/components/Input';
 
 import logo from '~/assets/movieLogo.json';
+import { HOME_SCREEN } from '~/constants';
 
 import * as S from './styles';
 
@@ -13,6 +15,8 @@ export function Login() {
   const animation = useRef<any>(null);
   const [verify, setVerify] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigation = useNavigation();
 
   return (
     <S.Container>
@@ -48,7 +52,10 @@ export function Login() {
               />
 
               <S.ContainerButton positionButton="center">
-                <Button title="Entrar" />
+                <Button
+                  title="Entrar"
+                  onPress={() => navigation.navigate(HOME_SCREEN)}
+                />
               </S.ContainerButton>
             </Animatable.View>
           ) : (
