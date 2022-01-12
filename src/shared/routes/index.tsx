@@ -9,6 +9,7 @@ import { Login } from '~/modules/Auth/screens/Login';
 import { Header } from '~/shared/components/Header';
 import { LOGIN_SCREEN, MOVIE_SCREEN_DRAWER } from '~/shared/constants';
 
+import { DrawerContent } from '../components/DrawerContent';
 import { HomeStackScreen } from './StacksNavigator';
 
 const Drawer = createDrawerNavigator();
@@ -28,6 +29,7 @@ export function RootStack() {
           {isLogged ? (
             <Drawer.Navigator
               initialRouteName={MOVIE_SCREEN_DRAWER}
+              drawerContent={props => <DrawerContent {...props} />}
               screenOptions={{
                 headerShown: false,
               }}
