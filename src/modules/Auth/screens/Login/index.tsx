@@ -3,11 +3,10 @@ import LottieView from 'lottie-react-native';
 import React, { useRef, useState } from 'react';
 import * as Animatable from 'react-native-animatable';
 
-import { Button } from '~/components/Button';
-import { Input } from '~/components/Input';
-
-import logo from '~/assets/movieLogo.json';
-import { HOME_SCREEN } from '~/constants';
+import logo from '~/modules/Auth/assets/movieLogo.json';
+import { Button } from '~/shared/components/Button';
+import { Input } from '~/shared/components/Input';
+import { MOVIE_SCREEN } from '~/shared/constants';
 
 import * as S from './styles';
 
@@ -54,7 +53,7 @@ export function Login() {
               <S.ContainerButton positionButton="center">
                 <Button
                   title="Entrar"
-                  onPress={() => navigation.navigate(HOME_SCREEN)}
+                  // onPress={() => navigation.navigate(MOVIE_SCREEN)}
                 />
               </S.ContainerButton>
             </Animatable.View>

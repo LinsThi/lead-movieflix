@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { NewText } from '~/components/Text';
+import { NewText } from '~/shared/components/Text';
 
 interface ContainerButtonProps {
   positionButton?: string;

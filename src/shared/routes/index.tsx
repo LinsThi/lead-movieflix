@@ -1,37 +1,21 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Header } from '~/components/Header';
+import { Login } from '~/modules/Auth/screens/Login';
+import { Header } from '~/shared/components/Header';
+import { LOGIN_SCREEN, MOVIE_SCREEN_DRAWER } from '~/shared/constants';
 
-import { HOME_SCREEN, HOME_SCREEN_DRAWER, LOGIN_SCREEN } from '~/constants';
-import { Home } from '~/screens/Home';
-import { Login } from '~/screens/Login';
+import { HomeStackScreen } from './StacksNavigator';
 
-const HomeStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
-
 const LoginStack = createStackNavigator();
 
 export function RootStack() {
   const [isLogged, setLogged] = useState(true);
-
-  const HomeStackScreen = useCallback(() => {
-    return (
-      <HomeStack.Navigator>
-        <HomeStack.Screen
-          name={HOME_SCREEN}
-          component={Home}
-          options={{
-            header: props => <Header {...props} enabledNavigation />,
-          }}
-        />
-      </HomeStack.Navigator>
-    );
-  }, []);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -43,13 +27,13 @@ export function RootStack() {
         <NavigationContainer>
           {isLogged ? (
             <Drawer.Navigator
-              initialRouteName={HOME_SCREEN_DRAWER}
+              initialRouteName={MOVIE_SCREEN_DRAWER}
               screenOptions={{
                 headerShown: false,
               }}
             >
               <Drawer.Screen
-                name={HOME_SCREEN_DRAWER}
+                name={MOVIE_SCREEN_DRAWER}
                 component={HomeStackScreen}
               />
             </Drawer.Navigator>
