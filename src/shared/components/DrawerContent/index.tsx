@@ -3,7 +3,7 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import React, { useCallback } from 'react';
 import { Drawer } from 'react-native-paper';
 
-import { MOVIE_SCREEN } from '~/shared/constants';
+import { MOVIE_SCREEN_DRAWER, PROFILE_SCREEN_DRAWER } from '~/shared/constants';
 
 import * as S from './styles';
 
@@ -47,7 +47,7 @@ export function DrawerContent(props: DrawerContentComponentProps) {
               IconItem('home', 'materialCommunityIcons', color, size)
             }
             label="Home"
-            onPress={() => props.navigation.navigate(MOVIE_SCREEN)}
+            onPress={() => props.navigation.navigate(MOVIE_SCREEN_DRAWER)}
           />
 
           <DrawerItem
@@ -55,7 +55,7 @@ export function DrawerContent(props: DrawerContentComponentProps) {
               IconItem('user-circle', 'font-5', color, size)
             }
             label="Perfil"
-            onPress={() => props.navigation.navigate(MOVIE_SCREEN)}
+            onPress={() => props.navigation.navigate(PROFILE_SCREEN_DRAWER)}
           />
         </Drawer.Section>
       </DrawerContentScrollView>
