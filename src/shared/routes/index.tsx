@@ -7,10 +7,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Login } from '~/modules/Auth/screens/Login';
 import { Header } from '~/shared/components/Header';
-import { LOGIN_SCREEN, MOVIE_SCREEN_DRAWER } from '~/shared/constants';
+import {
+  LOGIN_SCREEN,
+  MOVIE_SCREEN_DRAWER,
+  PROFILE_SCREEN_DRAWER,
+} from '~/shared/constants';
 
 import { DrawerContent } from '../components/DrawerContent';
-import { HomeStackScreen } from './StacksNavigator';
+import { HomeStackScreen, ProfileStackScreen } from './StacksNavigator';
 
 const Drawer = createDrawerNavigator();
 const LoginStack = createStackNavigator();
@@ -37,6 +41,11 @@ export function RootStack() {
               <Drawer.Screen
                 name={MOVIE_SCREEN_DRAWER}
                 component={HomeStackScreen}
+              />
+
+              <Drawer.Screen
+                name={PROFILE_SCREEN_DRAWER}
+                component={ProfileStackScreen}
               />
             </Drawer.Navigator>
           ) : (
