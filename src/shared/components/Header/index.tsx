@@ -38,7 +38,10 @@ export function Header({
 
       {enabledNavigation && (
         <S.ContainerPage>
-          <S.Button onPress={() => navigation.openDrawer()}>
+          <S.Button
+            onPress={() => navigation.openDrawer()}
+            style={{ position: 'absolute', left: 10 }}
+          >
             <S.IconButton iconType="ionicons" name="ios-menu-sharp" />
           </S.Button>
 

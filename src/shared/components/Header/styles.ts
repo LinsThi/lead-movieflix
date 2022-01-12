@@ -27,6 +27,8 @@ export const ContainerFont = styled.View`
 export const ContainerPage = styled.View`
   padding: 5px 10px;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Button = styled.TouchableOpacity``;
