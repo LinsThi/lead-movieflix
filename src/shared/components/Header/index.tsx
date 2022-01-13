@@ -1,5 +1,11 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import {
+  decrementFontSizeAction,
+  incrementFontSizeAction,
+  restoreFontSizeAction,
+} from '~/shared/store/ducks/font/action';
 
 import * as S from './styles';
 
@@ -14,6 +20,8 @@ export function Header({
   options,
   navigation,
 }: HeaderProps) {
+  const dispatch = useDispatch();
+
   return (
     <S.Container>
       <S.ContainerButton>
@@ -22,15 +30,15 @@ export function Header({
         </S.Button>
 
         <S.ContainerFont>
-          <S.Button>
+          <S.Button onPress={() => dispatch(decrementFontSizeAction())}>
             <S.DecreaseIncreaseFont>A-</S.DecreaseIncreaseFont>
           </S.Button>
 
-          <S.Button>
+          <S.Button onPress={() => dispatch(restoreFontSizeAction())}>
             <S.RestoreFont>A</S.RestoreFont>
           </S.Button>
 
-          <S.Button>
+          <S.Button onPress={() => dispatch(incrementFontSizeAction())}>
             <S.DecreaseIncreaseFont>A+</S.DecreaseIncreaseFont>
           </S.Button>
         </S.ContainerFont>
