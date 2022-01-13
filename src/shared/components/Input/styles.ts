@@ -35,15 +35,15 @@ export const ContainerInput = styled.View`
   width: 250px;
   padding: 0 5px;
   border-bottom-width: 1px;
-  border-bottom-color: #3490dc;
+  border-bottom-color: ${({ theme }) => theme.Colors.INPUT_BORDER_COLOR};
 `;
 
 export const IconInput = styled(Icon).attrs<IconInputProps>(
-  ({ name, iconType }) => ({
+  ({ name, iconType, theme }) => ({
     name,
     type: iconType,
-    color: '#3490dc',
-    size: 20,
+    color: theme.Colors.ICON_COLOR,
+    size: theme.Sizes.ICON_SIZE,
   }),
 )<IconInputProps>``;
 
@@ -51,7 +51,7 @@ export const InputLogin = styled.TextInput<TextInputProps>`
   width: ${({ iconRight }) => (iconRight ? 90 : 100)}%;
   padding-right: 10px;
   height: 53px;
-  font-size: 20px;
+  font-size: ${({ fontSize }) => fontSize}px;
 `;
 
 export const Button = styled.TouchableOpacity``;

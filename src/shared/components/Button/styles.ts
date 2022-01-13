@@ -3,7 +3,8 @@ import styled from 'styled-components/native';
 export const Container = styled.View``;
 
 export const Button = styled.TouchableOpacity`
-  background: #3490dc;
+  background: ${({ theme }) => theme.Colors.BUTTON_COLOR};
+  border: 1px ${({ theme }) => theme.Colors.BORDER_BUTTON_COLOR};
   border-radius: 10px;
   padding: 7px 50px;
   align-items: center;

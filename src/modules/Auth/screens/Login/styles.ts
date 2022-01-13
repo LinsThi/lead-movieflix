@@ -8,7 +8,7 @@ interface ContainerButtonProps {
 
 export const Container = styled.View`
   flex: 1;
-  background: #3490dc;
+  background: ${({ theme }) => theme.Colors.BACKGROUND_THEME};
 `;
 
 export const ContainerHeader = styled.View`
@@ -19,13 +19,13 @@ export const ContainerHeader = styled.View`
 
 export const ContainerForm = {
   flex: 0.5,
-  backgroundColor: '#fff',
   width: '100%',
   borderTopLeftRadius: 20,
   borderTopRightRadius: 20,
 };
 
 export const ContainerInput = styled.View`
+  background: ${({ theme }) => theme.Colors.BACKGROUND};
   margin-top: 30px;
   margin-left: 30px;
   width: 90%;
@@ -37,16 +37,17 @@ export const ContainerButton = styled.View<ContainerButtonProps>`
   margin-top: 15px;
 `;
 
-export const Title = styled(NewText).attrs({ fontSize: 30, fontColor: '#000' })`
+export const Title = styled(NewText).attrs(({ theme }) => ({
+  fontSize: theme.Sizes.TEXT_SIZE_TITLE,
+  fontColor: theme.Colors.FONT_COLOR_DARK,
+}))`
   margin-bottom: 10px;
 `;
 
-export const TextLogin = styled(NewText).attrs({
-  fontSize: 18,
-  fontColor: '#000',
-})`
-  font-size: 20px;
-`;
+export const TextLogin = styled(NewText).attrs(({ theme }) => ({
+  fontSize: theme.Sizes.TEXT_SIZE_SUBTITLE,
+  fontColor: theme.Colors.FONT_COLOR_DARK,
+}))``;
 
 export const TextButton = styled.Text`
   font-size: 18px;

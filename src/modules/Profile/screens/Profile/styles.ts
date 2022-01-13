@@ -9,11 +9,12 @@ interface IconInputProps {
 
 export const Container = styled.ScrollView`
   flex: 1;
+  background: ${({ theme }) => theme.Colors.BACKGROUND};
 `;
 
 export const ContainerImage = styled.View`
   width: 100%;
-  background: #3490dc;
+  background: ${({ theme }) => theme.Colors.BACKGROUND_HEADER};
   justify-content: center;
   align-items: center;
   padding: 20px 0px;
@@ -48,10 +49,10 @@ export const ImageUser = styled.Image`
 export const ButtonIcon = styled.TouchableOpacity``;
 
 export const IconInput = styled(Icon).attrs<IconInputProps>(
-  ({ name, iconType }) => ({
+  ({ name, iconType, theme }) => ({
     name,
     type: iconType,
-    color: '#fff',
+    color: theme.Colors.ICON_COLOR_HEADER,
     size: 40,
   }),
 )<IconInputProps>``;
