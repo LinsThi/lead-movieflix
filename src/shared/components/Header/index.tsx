@@ -6,6 +6,7 @@ import {
   incrementFontSizeAction,
   restoreFontSizeAction,
 } from '~/shared/store/ducks/font/action';
+import { toogleThemeAction } from '~/shared/store/ducks/theme/action';
 
 import * as S from './styles';
 
@@ -25,7 +26,7 @@ export function Header({
   return (
     <S.Container>
       <S.ContainerButton>
-        <S.Button>
+        <S.Button onPress={() => dispatch(toogleThemeAction())}>
           <S.IconButton iconType="font" name="adjust" />
         </S.Button>
 
