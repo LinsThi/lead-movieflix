@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import * as Animatable from 'react-native-animatable';
+import { ThemeContext } from 'styled-components/native';
 
 import logo from '~/modules/Auth/assets/movieLogo.json';
 import { Button } from '~/shared/components/Button';
@@ -11,6 +12,7 @@ import { MOVIE_SCREEN } from '~/shared/constants';
 import * as S from './styles';
 
 export function Login() {
+  const { Colors } = useContext(ThemeContext);
   const animation = useRef<any>(null);
   const [verify, setVerify] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +34,10 @@ export function Login() {
         </S.Button>
       </S.ContainerHeader>
 
-      <Animatable.View style={S.ContainerForm} animation="fadeInUpBig">
+      <Animatable.View
+        style={[S.ContainerForm, { backgroundColor: Colors.BACKGROUND }]}
+        animation="fadeInUpBig"
+      >
         <S.ContainerInput>
           {verify ? (
             <Animatable.View animation="fadeInLeft">
