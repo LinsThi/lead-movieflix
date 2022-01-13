@@ -10,7 +10,7 @@ interface IconProps {
 
 export const Container = styled.View`
   width: 100%;
-  background: #3490dc;
+  background: ${({ theme }) => theme.Colors.BACKGROUND_HEADER};
 `;
 
 export const ContainerButton = styled.View`
@@ -33,13 +33,17 @@ export const ContainerPage = styled.View`
 
 export const Button = styled.TouchableOpacity``;
 
-export const DecreaseIncreaseFont = styled(NewText).attrs({
+export const DecreaseIncreaseFont = styled(NewText).attrs(({ theme }) => ({
   fontSize: 25,
-})`
+  fontColor: theme.Colors.ICON_COLOR_HEADER,
+}))`
   font-weight: bold;
 `;
 
-export const RestoreFont = styled(NewText).attrs({ fontSize: 25 })`
+export const RestoreFont = styled(NewText).attrs(({ theme }) => ({
+  fontSize: 25,
+  fontColor: theme.Colors.ICON_COLOR_HEADER,
+}))`
   font-weight: bold;
   margin: 0px 15px;
 `;
@@ -50,10 +54,10 @@ export const Title = styled(NewText).attrs({ fontSize: 22 })`
 `;
 
 export const IconButton = styled(Icon).attrs<IconProps>(
-  ({ name, iconType }) => ({
+  ({ name, iconType, theme }) => ({
     name,
     type: iconType,
-    color: '#fff',
-    size: 25,
+    color: theme.Colors.ICON_COLOR_HEADER,
+    size: theme.Sizes.ICON_SIZE_HEADER,
   }),
 )<IconProps>``;

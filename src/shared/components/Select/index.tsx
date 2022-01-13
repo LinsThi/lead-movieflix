@@ -1,6 +1,7 @@
 import type { PickerProps } from '@react-native-picker/picker';
 import { Picker } from '@react-native-picker/picker';
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components/native';
 
 import { LIST_GENDERS } from '~/modules/Profile/constants';
 
@@ -14,19 +15,23 @@ const Select: React.FC<PickerProps & SelectProps> = ({
   title,
   ...rest
 }: SelectProps) => {
+  const { Colors } = useContext(ThemeContext);
+
   return (
     <S.Container>
       <S.IconSelect iconType="feather" name="users" />
-      <S.ContainerSelect
-        style={{
-          borderBottomColor: '#c5c5c5',
-          borderBottomWidth: 2,
-          borderBottomStartRadius: 15,
-          borderBottomEndRadius: 15,
-        }}
-      >
-        <S.SelectPicker {...rest} dropdownIconColor="#3490dc">
-          <Picker.Item label={title} value="0" enabled={false} />
+      <S.ContainerSelect>
+        <S.SelectPicker {...rest} dropdownIconColor={Colors.ICON_COLOR}>
+          <Picker.Item
+            label={title}
+            value="0"
+            enabled={false}
+            color={Colors.PLACEHOLDER_INPUT_COLOR}
+            style={{
+              backgroundColor: Colors.BACKGROUND,
+              color: Colors.FONT_COLOR_DARK,
+            }}
+          />
           {LIST_GENDERS.map(gender => {
             return (
               <Picker.Item
@@ -34,8 +39,8 @@ const Select: React.FC<PickerProps & SelectProps> = ({
                 value={gender.id}
                 key={gender.id}
                 style={{
-                  backgroundColor: '#d5d5',
-                  color: '#000',
+                  backgroundColor: Colors.BACKGROUND,
+                  color: Colors.FONT_COLOR_DARK,
                 }}
               />
             );

@@ -1,25 +1,29 @@
 import type { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { Drawer } from 'react-native-paper';
+import { ThemeContext } from 'styled-components/native';
 
 import { MOVIE_SCREEN_DRAWER, PROFILE_SCREEN_DRAWER } from '~/shared/constants';
+
+import { NewText } from '../Text';
 
 import * as S from './styles';
 
 export function DrawerContent(props: DrawerContentComponentProps) {
-  const IconItem = useCallback(
-    (name: string, iconType: string, color: any, size: any) => {
-      return (
-        <S.IconItem
-          name={name}
-          iconType={iconType}
-          iconColor={color}
-          size={size}
-        />
-      );
+  const { Colors } = useContext(ThemeContext);
+
+  const [itemSelected, setItemSelected] = useState('Home');
+
+  const IconItem = useCallback((name: string, iconType: string) => {
+    return <S.IconItem name={name} iconType={iconType} />;
+  }, []);
+
+  const LabelItem = useCallback(
+    (name: string) => {
+      return <NewText fontColor={Colors.TEXT_CLICKABLE}>{name}</NewText>;
     },
-    [],
+    [Colors.TEXT_CLICKABLE],
   );
 
   return (
@@ -43,29 +47,33 @@ export function DrawerContent(props: DrawerContentComponentProps) {
 
         <Drawer.Section style={S.DrawerRoutes}>
           <DrawerItem
-            icon={({ color, size }) =>
-              IconItem('home', 'materialCommunityIcons', color, size)
-            }
-            label="Home"
-            onPress={() => props.navigation.navigate(MOVIE_SCREEN_DRAWER)}
+            icon={() => IconItem('home', 'materialCommunityIcons')}
+            label={() => LabelItem('Home')}
+            onPress={() => {
+              setItemSelected('Home');
+              props.navigation.navigate(MOVIE_SCREEN_DRAWER);
+            }}
+            activeBackgroundColor={Colors.BACKGROUND_MENU_SELECTED}
+            focused={itemSelected === 'Home'}
           />
 
           <DrawerItem
-            icon={({ color, size }) =>
-              IconItem('user-circle', 'font-5', color, size)
-            }
-            label="Perfil"
-            onPress={() => props.navigation.navigate(PROFILE_SCREEN_DRAWER)}
+            icon={() => IconItem('user-circle', 'font-5')}
+            label={() => LabelItem('Perfil')}
+            onPress={() => {
+              setItemSelected('Perfil');
+              props.navigation.navigate(PROFILE_SCREEN_DRAWER);
+            }}
+            activeBackgroundColor={Colors.BACKGROUND_MENU_SELECTED}
+            focused={itemSelected === 'Perfil'}
           />
         </Drawer.Section>
       </DrawerContentScrollView>
 
-      <Drawer.Section style={S.ButtonDrawerSection}>
+      <Drawer.Section>
         <DrawerItem
-          icon={({ color, size }) =>
-            IconItem('exit-to-app', 'materialCommunityIcons', color, size)
-          }
-          label="Sair"
+          icon={() => IconItem('exit-to-app', 'materialCommunityIcons')}
+          label={() => LabelItem('Sair')}
           onPress={() => console.log('a')}
         />
       </Drawer.Section>
