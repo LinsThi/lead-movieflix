@@ -2,5 +2,6 @@ import { combineReducers } from 'redux';
 
 import font from './font';
 import theme from './theme';
+import user from './user';
 
-export default combineReducers({ font, theme });
+export default combineReducers({ font, theme, user });

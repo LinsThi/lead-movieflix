@@ -2,22 +2,27 @@ import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
 import React, { useContext, useRef, useState } from 'react';
 import * as Animatable from 'react-native-animatable';
+import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 
 import logo from '~/modules/Auth/assets/movieLogo.json';
 import { Button } from '~/shared/components/Button';
 import { Input } from '~/shared/components/Input';
-import { MOVIE_SCREEN } from '~/shared/constants';
+import { loginUserAction } from '~/shared/store/ducks/user/action';
 
 import * as S from './styles';
 
 export function Login() {
   const { Colors } = useContext(ThemeContext);
+
   const animation = useRef<any>(null);
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [verify, setVerify] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   return (
     <S.Container>
@@ -45,11 +50,15 @@ export function Login() {
                 placeholder="Usuário"
                 iconLeft="person"
                 iconType="ionicons"
+                value={username}
+                onChangeText={setUsername}
               />
 
               <Input
                 placeholder="Senha"
                 iconLeft="lock"
+                value={password}
+                onChangeText={setPassword}
                 secureTextEntry={!showPassword}
                 iconAction={() => setShowPassword(!showPassword)}
                 iconRight={showPassword ? 'eye-off' : 'eye'}
@@ -58,7 +67,7 @@ export function Login() {
               <S.ContainerButton positionButton="center">
                 <Button
                   title="Entrar"
-                  // onPress={() => navigation.navigate(MOVIE_SCREEN)}
+                  onPress={() => dispatch(loginUserAction(username, password))}
                 />
               </S.ContainerButton>
             </Animatable.View>
