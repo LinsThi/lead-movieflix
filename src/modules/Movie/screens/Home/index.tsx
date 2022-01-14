@@ -15,6 +15,7 @@ export function Home() {
   useEffect(() => {
     navigation.setOptions({
       title: `Bem-Vindo(a) ${currentUser.username}`,
+      menu: 'Home',
     });
   }, [navigation, currentUser.username]);
 

@@ -5,10 +5,11 @@ import type { GenderProps } from '~/modules/Profile/constants';
 export enum UserTypes {
   USER_LOGIN = '@user/USER_LOGIN',
   USER_LOGOUT = '@user/USER_LOGOUT',
+  USER_UPDATED = '@user/USER_UPDATED',
+  USER_UPDATED_AVATAR = '@user/USER_UPDATED_AVATAR',
 }
 
-interface UserProps {
-  name: string;
+export interface UserProps {
   username: string;
   avatar: string;
   email: string;
@@ -29,4 +30,14 @@ export interface UserLoginProps extends Action {
 
 export interface UserLogoutProps extends Action {
   type: UserTypes.USER_LOGOUT;
+}
+
+export interface UserUpdateProps extends Action {
+  type: UserTypes.USER_UPDATED;
+  payload: { currentUser: any };
+}
+
+export interface UserUpdateAvatarProps extends Action {
+  type: UserTypes.USER_UPDATED_AVATAR;
+  payload: { avatar: string };
 }

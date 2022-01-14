@@ -1,6 +1,6 @@
-import { useNavigation } from '@react-navigation/native';
+import { useFormik } from 'formik';
 import LottieView from 'lottie-react-native';
-import React, { useContext, useRef, useState } from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
@@ -10,19 +10,39 @@ import { Button } from '~/shared/components/Button';
 import { Input } from '~/shared/components/Input';
 import { loginUserAction } from '~/shared/store/ducks/user/action';
 
+import { validationSchema } from './validation';
+
 import * as S from './styles';
+
+interface DataProps {
+  username: string;
+  password: string;
+}
 
 export function Login() {
   const { Colors } = useContext(ThemeContext);
+  const dispatch = useDispatch();
 
   const animation = useRef<any>(null);
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [verify, setVerify] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const dispatch = useDispatch();
+  const handleSubmitLogin = useCallback(
+    (data: DataProps) => {
+      dispatch(loginUserAction(data.username, data.password));
+    },
+    [dispatch],
+  );
+
+  const { handleSubmit, handleChange, dirty, values, errors } = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+    validationSchema,
+    validateOnChange: false,
+    onSubmit: handleSubmitLogin,
+  });
 
   return (
     <S.Container>
@@ -50,25 +70,24 @@ export function Login() {
                 placeholder="Usuário"
                 iconLeft="person"
                 iconType="ionicons"
-                value={username}
-                onChangeText={setUsername}
+                value={values.username}
+                onChangeText={handleChange('username')}
+                error={errors.username}
               />
 
               <Input
                 placeholder="Senha"
                 iconLeft="lock"
-                value={password}
-                onChangeText={setPassword}
+                value={values.password}
+                onChangeText={handleChange('password')}
+                error={errors.password}
                 secureTextEntry={!showPassword}
                 iconAction={() => setShowPassword(!showPassword)}
                 iconRight={showPassword ? 'eye-off' : 'eye'}
               />
 
               <S.ContainerButton positionButton="center">
-                <Button
-                  title="Entrar"
-                  onPress={() => dispatch(loginUserAction(username, password))}
-                />
+                <Button title="Entrar" onPress={() => handleSubmit()} />
               </S.ContainerButton>
             </Animatable.View>
           ) : (

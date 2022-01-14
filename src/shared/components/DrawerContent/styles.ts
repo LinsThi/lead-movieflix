@@ -47,7 +47,6 @@ export const UserEmail = styled(NewText).attrs(({ theme }) => ({
   fontSize: theme.Sizes.TEXT_SIZE_USERNAME_SECONDARY,
   fontColor: theme.Colors.TEXT_USERNAME_SECONDARY,
 }))`
-  padding-left: 5px;
   padding-top: 5px;
   text-align: justify;
 `;

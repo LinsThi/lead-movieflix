@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import type { TextInputProps } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import { useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 
@@ -12,6 +13,7 @@ interface InputProps extends TextInputProps {
   iconType?: string;
   iconRight?: string;
   iconAction?: () => void;
+  error?: any;
 }
 
 export function Input({
@@ -19,6 +21,7 @@ export function Input({
   iconType,
   iconRight,
   iconAction,
+  error,
   ...rest
 }: InputProps) {
   const { Colors, Sizes } = useContext(ThemeContext);
@@ -45,6 +48,12 @@ export function Input({
           </S.ContainerInput>
         </S.Container>
       </S.ContainerInputIcon>
+
+      {error && (
+        <Animatable.View animation="shake">
+          <S.ErrorMessage fontSize={14}>{error}</S.ErrorMessage>
+        </Animatable.View>
+      )}
     </S.InputWrapper>
   );
 }

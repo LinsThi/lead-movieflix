@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 
 import Icon from '../Icon';
+import { NewText } from '../Text';
 
 interface IconInputProps {
   name: string;
@@ -19,14 +20,13 @@ export const InputWrapper = styled.View`
 
 export const ContainerInputIcon = styled.View`
   flex-direction: row;
-  justify-content: center;
+
   align-items: center;
   border-radius: 14px;
-  padding-left: 15px;
 `;
 
 export const Container = styled.View`
-  padding: 5px;
+  padding: 5px 0px;
 `;
 
 export const ContainerInput = styled.View`
@@ -52,6 +52,12 @@ export const InputLogin = styled.TextInput<TextInputProps>`
   padding-right: 10px;
   height: 53px;
   font-size: ${({ fontSize }) => fontSize}px;
+  color: ${({ theme }) => theme.Colors.TEXT_INPUT_COLOR};
 `;
 
 export const Button = styled.TouchableOpacity``;
+
+export const ErrorMessage = styled(NewText)`
+  color: ${({ theme }) => theme.Colors.TEXT_ERROR_COLOR};
+  margin-top: 10px;
+`;
