@@ -2,16 +2,25 @@ import type { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import React, { useCallback, useContext, useState } from 'react';
 import { Drawer } from 'react-native-paper';
+import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 
-import { MOVIE_SCREEN_DRAWER, PROFILE_SCREEN_DRAWER } from '~/shared/constants';
+import type { AplicationState } from '~/@types/Entity/AplicationState';
+import {
+  MOVIE_SCREEN_DRAWER,
+  PROFILE_SCREEN_DRAWER,
+} from '~/shared/constants/routes';
+import { logoutUserAction } from '~/shared/store/ducks/user/action';
 
 import { NewText } from '../Text';
 
 import * as S from './styles';
 
 export function DrawerContent(props: DrawerContentComponentProps) {
+  const { currentUser } = useSelector((state: AplicationState) => state.user);
+
   const { Colors } = useContext(ThemeContext);
+  const dispatch = useDispatch();
 
   const [itemSelected, setItemSelected] = useState('Home');
 
@@ -34,12 +43,16 @@ export function DrawerContent(props: DrawerContentComponentProps) {
             <S.ContainerUserInfo>
               <S.AvatarUser
                 source={{
-                  uri: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
+                  uri:
+                    currentUser.avatar ||
+                    'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
                 }}
               />
               <S.ContainerUser>
-                <S.UserName>Marayah Sabelle</S.UserName>
-                <S.UserEmail>thiagolins13255lasjdoiais@gmail.com</S.UserEmail>
+                <S.UserName>{currentUser.username}</S.UserName>
+                {currentUser.email !== '' && (
+                  <S.UserEmail>{currentUser.email}</S.UserEmail>
+                )}
               </S.ContainerUser>
             </S.ContainerUserInfo>
           </S.ContainerDrawerUser>
@@ -74,7 +87,7 @@ export function DrawerContent(props: DrawerContentComponentProps) {
         <DrawerItem
           icon={() => IconItem('exit-to-app', 'materialCommunityIcons')}
           label={() => LabelItem('Sair')}
-          onPress={() => console.log('a')}
+          onPress={() => dispatch(logoutUserAction())}
         />
       </Drawer.Section>
     </S.Container>

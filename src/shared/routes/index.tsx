@@ -14,7 +14,7 @@ import {
   LOGIN_SCREEN,
   MOVIE_SCREEN_DRAWER,
   PROFILE_SCREEN_DRAWER,
-} from '~/shared/constants';
+} from '~/shared/constants/routes';
 
 import { DrawerContent } from '../components/DrawerContent';
 import { HomeStackScreen, ProfileStackScreen } from './StacksNavigator';
@@ -24,9 +24,8 @@ const Drawer = createDrawerNavigator();
 const LoginStack = createStackNavigator();
 
 export function RootStack() {
-  const [isLogged, setLogged] = useState(true);
-
   const { theme } = useSelector((state: AplicationState) => state.theme);
+  const { isLogged } = useSelector((state: AplicationState) => state.user);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

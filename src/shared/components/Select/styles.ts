@@ -2,6 +2,7 @@ import { Picker } from '@react-native-picker/picker';
 import styled from 'styled-components/native';
 
 import Icon from '../Icon';
+import { NewText } from '../Text';
 
 interface IconInputProps {
   name: string;
@@ -9,17 +10,16 @@ interface IconInputProps {
 }
 
 export const Container = styled.View`
-  max-width: 290px;
+  max-width: 285px;
   margin-bottom: 10px;
   flex-direction: row;
   align-items: center;
-  margin-left: 20px;
+  margin-left: 15px;
 `;
 
 export const ContainerSelect = styled.View`
   flex: 1;
   border-bottom-width: 1px;
-  border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border-bottom-color: ${({ theme }) => theme.Colors.INPUT_BORDER_COLOR};
 `;

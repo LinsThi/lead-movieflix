@@ -8,6 +8,7 @@ import * as S from './styles';
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
+  disabled?: boolean;
 }
 
 export function Button({ title, ...rest }: ButtonProps) {
