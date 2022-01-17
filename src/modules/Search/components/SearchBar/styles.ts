@@ -21,8 +21,8 @@ export const Container = styled.View`
 `;
 
 export const InputSearch = styled.TextInput<TextInputProps>`
-  width: 85%;
-  padding: 0px 10px;
+  width: 90%;
+  padding: 0px 5px;
   font-size: ${({ fontSize }) => fontSize}px;
   font-style: italic;
 `;

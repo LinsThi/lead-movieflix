@@ -20,9 +20,7 @@ export function SearchBar({ ...rest }: TextInputProps) {
         placeholderTextColor={Colors.TEXT_INPUT_COLOR}
       />
 
-      <S.Button onPress={() => console.log('a')}>
-        <S.IconInput name="search" iconType="evilIcons" />
-      </S.Button>
+      <S.IconInput name="search" iconType="evilIcons" />
     </S.Container>
   );
 }

@@ -6,6 +6,7 @@ type ColorProps = {
   BACKGROUND_HEADER: string;
   BACKGROUND_MODAL: string;
   BACKGROUND_MENU_SELECTED: string;
+  BACKGROUND_MOVIE_NAME: string;
   FONT_COLOR_MODAL: string;
   FONT_COLOR_DARK: string;
   ICON_COLOR: string;
@@ -28,6 +29,7 @@ type SizeProps = {
   ICON_SIZE_HEADER: number;
   ICON_SIZE_MENU: number;
   INPUT_SIZE: number;
+  TEXT_NAME_SIZE: number;
   TEXT_SIZE_TITLE: number;
   TEXT_SIZE_SUBTITLE: number;
   TEXT_SIZE_USERNAME_PRIMARY: number;

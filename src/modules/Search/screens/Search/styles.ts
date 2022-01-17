@@ -9,6 +9,7 @@ interface IconProps {
 
 export const Container = styled.View`
   flex: 1;
+  background: ${({ theme }) => theme.Colors.BACKGROUND};
 `;
 
 export const ContainerSearch = styled.View`
@@ -19,6 +20,18 @@ export const ContainerSearch = styled.View`
   justify-content: space-evenly;
   align-items: center;
 `;
+
+export const ContainerMovies = styled.View`
+  flex: 1;
+  align-items: center;
+`;
+
+export const ContainerMoviesInfo = styled.View`
+  align-items: center;
+  margin-top: 40px;
+`;
+
+export const FlatList = styled.FlatList``;
 
 export const IconButton = styled.TouchableOpacity``;
 
