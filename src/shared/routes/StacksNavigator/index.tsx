@@ -3,8 +3,13 @@ import React from 'react';
 
 import { Home } from '~/modules/Movie/screens/Home';
 import { Profile } from '~/modules/Profile/screens/Profile';
+import { Search } from '~/modules/Search/screens/Search';
 import { Header } from '~/shared/components/Header';
-import { MOVIE_SCREEN, PROFILE_SCREEN } from '~/shared/constants/routes';
+import {
+  MOVIE_SCREEN,
+  PROFILE_SCREEN,
+  SEARCH_SCREEN,
+} from '~/shared/constants/routes';
 
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
@@ -15,6 +20,20 @@ export function HomeStackScreen() {
       <HomeStack.Screen
         name={MOVIE_SCREEN}
         component={Home}
+        options={{
+          header: props => <Header {...props} enabledNavigation />,
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+}
+
+export function SearchStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name={SEARCH_SCREEN}
+        component={Search}
         options={{
           header: props => <Header {...props} enabledNavigation />,
         }}

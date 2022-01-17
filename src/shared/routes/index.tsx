@@ -14,10 +14,15 @@ import {
   LOGIN_SCREEN,
   MOVIE_SCREEN_DRAWER,
   PROFILE_SCREEN_DRAWER,
+  SEARCH_SCREEN_DRAWER,
 } from '~/shared/constants/routes';
 
 import { DrawerContent } from '../components/DrawerContent';
-import { HomeStackScreen, ProfileStackScreen } from './StacksNavigator';
+import {
+  HomeStackScreen,
+  ProfileStackScreen,
+  SearchStackScreen,
+} from './StacksNavigator';
 import { createTheme } from './utils';
 
 const Drawer = createDrawerNavigator();
@@ -47,6 +52,11 @@ export function RootStack() {
                 <Drawer.Screen
                   name={MOVIE_SCREEN_DRAWER}
                   component={HomeStackScreen}
+                />
+
+                <Drawer.Screen
+                  name={SEARCH_SCREEN_DRAWER}
+                  component={SearchStackScreen}
                 />
 
                 <Drawer.Screen

@@ -9,6 +9,7 @@ import type { AplicationState } from '~/@types/Entity/AplicationState';
 import {
   MOVIE_SCREEN_DRAWER,
   PROFILE_SCREEN_DRAWER,
+  SEARCH_SCREEN_DRAWER,
 } from '~/shared/constants/routes';
 import { logoutUserAction } from '~/shared/store/ducks/user/action';
 
@@ -68,6 +69,17 @@ export function DrawerContent(props: DrawerContentComponentProps) {
             }}
             activeBackgroundColor={Colors.BACKGROUND_MENU_SELECTED}
             focused={itemSelected === 'Home'}
+          />
+
+          <DrawerItem
+            icon={() => IconItem('search', 'ionicons')}
+            label={() => LabelItem('Buscar')}
+            onPress={() => {
+              setItemSelected('Buscar');
+              props.navigation.navigate(SEARCH_SCREEN_DRAWER);
+            }}
+            activeBackgroundColor={Colors.BACKGROUND_MENU_SELECTED}
+            focused={itemSelected === 'Buscar'}
           />
 
           <DrawerItem
