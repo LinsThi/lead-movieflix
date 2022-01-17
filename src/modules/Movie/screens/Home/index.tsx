@@ -1,9 +1,9 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { Text } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import type { AplicationState } from '~/@types/Entity/AplicationState';
+import { NewText } from '~/shared/components/Text';
 
 import * as S from './styles';
 
@@ -15,14 +15,13 @@ export function Home() {
   useEffect(() => {
     navigation.setOptions({
       title: `Bem-Vindo(a) ${currentUser.username}`,
-      menu: 'Home',
     });
   }, [navigation, currentUser.username]);
 
   return (
     <S.Container>
       <S.ContainerInfo>
-        <Text>Home</Text>
+        <NewText fontColor="#000">Home</NewText>
       </S.ContainerInfo>
     </S.Container>
   );

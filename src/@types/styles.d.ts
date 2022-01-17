@@ -20,6 +20,7 @@ type ColorProps = {
   TEXT_CLICKABLE: string;
   TEXT_USERNAME_PRIMARY: string;
   TEXT_USERNAME_SECONDARY: string;
+  SEARCH_BAR_COLOR: string;
 };
 
 type SizeProps = {
@@ -31,6 +32,7 @@ type SizeProps = {
   TEXT_SIZE_SUBTITLE: number;
   TEXT_SIZE_USERNAME_PRIMARY: number;
   TEXT_SIZE_USERNAME_SECONDARY: number;
+  FONTSIZE_SEARCH: number;
 };
 
 declare module 'styled-components' {
