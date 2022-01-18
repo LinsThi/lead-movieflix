@@ -38,8 +38,6 @@ export function MovieInfo() {
     });
   }, [navigation]);
 
-  console.tron.log(movie);
-
   return (
     <S.Container>
       <S.ContainerPost>
