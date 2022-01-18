@@ -8,3 +8,6 @@ export const SEARCH_SCREEN_DRAWER = 'Search';
 
 export const PROFILE_SCREEN = 'ProfileScreen';
 export const PROFILE_SCREEN_DRAWER = 'Perfil';
+
+export const MOVIE_INFO_SCREEN = 'MovieInfoScreen';
+export const MOVIE_INFO_SCREEN_DRAWER = 'Movie';

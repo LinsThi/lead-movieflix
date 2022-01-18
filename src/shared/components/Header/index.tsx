@@ -12,12 +12,14 @@ import * as S from './styles';
 
 interface HeaderProps {
   enabledNavigation?: boolean;
+  buttonBack?: boolean;
   options?: any;
   navigation?: any;
 }
 
 export function Header({
   enabledNavigation,
+  buttonBack,
   options,
   navigation,
 }: HeaderProps) {
@@ -52,6 +54,19 @@ export function Header({
             style={{ position: 'absolute', left: 10 }}
           >
             <S.IconButton iconType="ionicons" name="ios-menu-sharp" />
+          </S.Button>
+
+          {options && <S.Title>{options.title}</S.Title>}
+        </S.ContainerPage>
+      )}
+
+      {buttonBack && (
+        <S.ContainerPage>
+          <S.Button
+            onPress={() => navigation.goBack()}
+            style={{ position: 'absolute', left: 10 }}
+          >
+            <S.IconButton iconType="antDesign" name="arrowleft" />
           </S.Button>
 
           {options && <S.Title>{options.title}</S.Title>}

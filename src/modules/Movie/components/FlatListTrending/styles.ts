@@ -47,3 +47,5 @@ export const IconStar = styled(Icon).attrs<IconInputProps>(
     size: theme.Sizes.ICON_SIZE,
   }),
 )<IconInputProps>``;
+
+export const ButtonMovie = styled.TouchableOpacity``;
