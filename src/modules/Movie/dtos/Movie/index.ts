@@ -10,7 +10,7 @@ export interface ProductionCompanies {
   origin_country: string;
 }
 
-export interface Movie {
+export interface MovieProps {
   adult: boolean;
   backdrop_path: string;
   genres: GenreMovie;
