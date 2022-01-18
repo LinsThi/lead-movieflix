@@ -40,3 +40,5 @@ export const OverviewMovie = styled(NewText).attrs(({ theme }) => ({
   fontSize: 16,
   fontColor: theme.Colors.TEXT_CLICKABLE,
 }))``;
+
+export const ButtonMovie = styled.TouchableOpacity``;

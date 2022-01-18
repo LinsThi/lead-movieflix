@@ -7,6 +7,7 @@ type ColorProps = {
   BACKGROUND_MODAL: string;
   BACKGROUND_MENU_SELECTED: string;
   BACKGROUND_MOVIE_NAME: string;
+  BACKGROUND_MOVIE_OVERVIEW: string;
   BACKGROUND_HOME_LISTS: string;
   FONT_COLOR_MODAL: string;
   FONT_COLOR_DARK: string;
@@ -21,6 +22,7 @@ type ColorProps = {
   TEXT_INPUT_COLOR: string;
   TEXT_ERROR_COLOR: string;
   TEXT_CLICKABLE: string;
+  TEXT_MOVIE_TITLE_COLOR: string;
   TEXT_NO_CLICKABLE: string;
   TEXT_USERNAME_PRIMARY: string;
   TEXT_USERNAME_SECONDARY: string;

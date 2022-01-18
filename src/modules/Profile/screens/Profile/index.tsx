@@ -40,7 +40,6 @@ export function Profile() {
   useEffect(() => {
     navigation.setOptions({
       title: 'Perfil',
-      menu: 'Perfil',
     });
   }, [navigation, currentUser.avatar]);
 
