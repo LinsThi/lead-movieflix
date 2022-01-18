@@ -52,10 +52,11 @@ export const TextTitle = styled(NewText).attrs(({ theme }) => ({
   fontColor: theme.Colors.TEXT_MOVIE_TITLE_COLOR,
 }))`
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
   background: ${({ theme }) => theme.Colors.BACKGROUND_HOME_LISTS};
   border-radius: 10px;
   opacity: 0.85;
+  padding: 5px 5px;
 `;
 
 export const TextOverview = styled(NewText).attrs(({ theme }) => ({
