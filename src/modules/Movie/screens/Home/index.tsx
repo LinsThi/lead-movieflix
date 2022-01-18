@@ -3,7 +3,10 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import type { AplicationState } from '~/@types/Entity/AplicationState';
-import { NewText } from '~/shared/components/Text';
+
+import { FlatListCarousel } from '../../components/FlatListCarousel';
+import { FlatListComing } from '../../components/FlatListComing';
+import { FlatListTrending } from '../../components/FlatListTrending';
 
 import * as S from './styles';
 
@@ -20,9 +23,21 @@ export function Home() {
 
   return (
     <S.Container>
-      <S.ContainerInfo>
-        <NewText fontColor="#000">Home</NewText>
-      </S.ContainerInfo>
+      <S.ContainerMovieHighLight>
+        <FlatListCarousel />
+      </S.ContainerMovieHighLight>
+
+      <S.ContainerMovieTrending>
+        <S.TitleSection>Filmes Tendência</S.TitleSection>
+
+        <FlatListTrending />
+      </S.ContainerMovieTrending>
+
+      <S.ContainerMovieComingSoon>
+        <S.TitleSection>Em Breve</S.TitleSection>
+
+        <FlatListComing />
+      </S.ContainerMovieComingSoon>
     </S.Container>
   );
 }

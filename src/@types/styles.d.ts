@@ -7,9 +7,11 @@ type ColorProps = {
   BACKGROUND_MODAL: string;
   BACKGROUND_MENU_SELECTED: string;
   BACKGROUND_MOVIE_NAME: string;
+  BACKGROUND_HOME_LISTS: string;
   FONT_COLOR_MODAL: string;
   FONT_COLOR_DARK: string;
   ICON_COLOR: string;
+  ICON_STAR_COLOR: string;
   ICON_COLOR_HEADER: string;
   INPUT_BORDER_COLOR: string;
   PLACEHOLDER_INPUT_COLOR: string;
@@ -19,8 +21,10 @@ type ColorProps = {
   TEXT_INPUT_COLOR: string;
   TEXT_ERROR_COLOR: string;
   TEXT_CLICKABLE: string;
+  TEXT_NO_CLICKABLE: string;
   TEXT_USERNAME_PRIMARY: string;
   TEXT_USERNAME_SECONDARY: string;
+  TEXT_SECTION_COLOR: string;
   SEARCH_BAR_COLOR: string;
 };
 
