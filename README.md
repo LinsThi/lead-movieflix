@@ -64,6 +64,6 @@ A aplicação foi criada como forma de avaliação final do projeto Lead Mentori
 
 - Para instalar todas as dependências utilizadas no projeto, basta executar o comando `yarn`.
 - A aplicação pode ser iniciada com `expo start`.
-- Após isso, é preciso rodar a aplicação em um emulador ou no própio celular.
+- Após isso, é preciso rodar a aplicação em um emulador ou no próprio celular.
 
 ---
