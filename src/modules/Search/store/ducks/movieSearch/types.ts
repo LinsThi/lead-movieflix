@@ -26,7 +26,3 @@ export interface GetMoviesSuccessProps extends Action {
 export interface GetMoviesErrorProps extends Action {
   type: MovieTypes.GET_MOVIES_ERROR;
 }
-
-export interface GetMoviesRestoreProps extends Action {
-  type: MovieTypes.MOVIES_RESTORE;
-}

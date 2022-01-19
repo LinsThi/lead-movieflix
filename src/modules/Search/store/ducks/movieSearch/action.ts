@@ -3,7 +3,6 @@ import { action } from 'typesafe-actions';
 import type {
   GetMoviesErrorProps,
   GetMoviesProps,
-  GetMoviesRestoreProps,
   GetMoviesSuccessProps,
 } from './types';
 import { MovieTypes } from './types';
@@ -18,6 +17,3 @@ export const getMoviesSuccessAction = (
 
 export const getMoviesErrorAction = (): GetMoviesErrorProps =>
   action(MovieTypes.GET_MOVIES_ERROR);
-
-export const movieRestoreAction = (): GetMoviesRestoreProps =>
-  action(MovieTypes.MOVIES_RESTORE);

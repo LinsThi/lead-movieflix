@@ -93,7 +93,11 @@ export function Login() {
               />
 
               <S.ContainerButton positionButton="center">
-                <Button title="Entrar" onPress={() => handleSubmit()} />
+                <Button
+                  title="Entrar"
+                  onPress={() => handleSubmit()}
+                  disabled={!dirty}
+                />
               </S.ContainerButton>
             </Animatable.View>
           ) : (

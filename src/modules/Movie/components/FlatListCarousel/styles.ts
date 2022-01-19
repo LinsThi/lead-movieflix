@@ -11,12 +11,9 @@ interface IconInputProps {
   iconType?: string;
 }
 
-export const Container = styled.View`
-  flex: 1;
-`;
+export const Container = styled.View``;
 
 export const ContainerMovie = styled.View`
-  flex: 1;
   flex-direction: row;
 `;
 
@@ -30,7 +27,9 @@ export const ContainerInfo = styled.View`
   flex: 1;
 `;
 
-export const ImageBackground = styled.ImageBackground``;
+export const ImageBackground = styled.ImageBackground`
+  height: 200px;
+`;
 
 export const FlatList = styled.FlatList`
   width: 100%;
