@@ -49,6 +49,7 @@ export function FlatListCarousel() {
         extraData={listMoviesTrending.results}
         keyExtractor={(_, index) => index.toString()}
         horizontal
+        showsHorizontalScrollIndicator={false}
         pagingEnabled
         renderItem={renderMovie}
       />

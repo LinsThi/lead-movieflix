@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 

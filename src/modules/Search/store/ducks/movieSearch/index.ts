@@ -31,8 +31,6 @@ const reducer: Reducer<MovieState> = (
         getLoading: false,
         errorGetMovies: true,
       };
-    case MovieTypes.MOVIES_RESTORE:
-      return INITIAL_STATE;
     default:
       return state;
   }

@@ -2,7 +2,6 @@ import { Picker } from '@react-native-picker/picker';
 import styled from 'styled-components/native';
 
 import Icon from '../Icon';
-import { NewText } from '../Text';
 
 interface IconInputProps {
   name: string;
