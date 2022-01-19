@@ -7,5 +7,7 @@ export const GET_SEARCH = 'search';
 export const GET_TRENDING = 'trending';
 export const GET_UPCOMING = 'upcoming';
 export const GET_TRAILER = 'videos';
+export const GET_GENRER = 'genre';
+export const GET_LIST = 'list';
 
 export const GET_POSTER_PATH = 'https://image.tmdb.org/t/p/w500/';

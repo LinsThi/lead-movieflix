@@ -1,25 +1,25 @@
 import { useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 
 import type { AplicationState } from '~/@types/Entity/AplicationState';
+import { getMoviesAction } from '~/modules/Search/store/ducks/movieSearch/action';
 import { NewText } from '~/shared/components/Text';
-import {
-  getMoviesAction,
-  movieRestoreAction,
-} from '~/shared/store/ducks/movie/action';
 
 import search from '../../assets/search.json';
 import { FlatList } from '../../components/FlatList';
+import { MenuCategory } from '../../components/MenuCategory';
 import { SearchBar } from '../../components/SearchBar';
 
 import * as S from './styles';
 
 export function Search() {
   const { Colors } = useContext(ThemeContext);
-  const { listMovies } = useSelector((state: AplicationState) => state.movie);
+  const { listMovies } = useSelector(
+    (state: AplicationState) => state.movieSearch,
+  );
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -42,9 +42,7 @@ export function Search() {
           onEndEditing={() => dispatch(getMoviesAction(searchMovies, 1))}
         />
 
-        <S.IconButton onPress={() => dispatch(movieRestoreAction())}>
-          <S.IconFilter name="filter" iconType="ionicons" />
-        </S.IconButton>
+        <MenuCategory />
       </S.ContainerSearch>
 
       <S.ContainerMovies>

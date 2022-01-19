@@ -8,6 +8,7 @@ import { ThemeContext } from 'styled-components/native';
 import logo from '~/modules/Auth/assets/movieLogo.json';
 import { getMoviesComingAction } from '~/modules/Movie/store/ducks/movieComing/action';
 import { getMoviesTrendingAction } from '~/modules/Movie/store/ducks/movieTrending/action';
+import { getCategoryAction } from '~/modules/Search/store/ducks/movieCategory/action';
 import { Button } from '~/shared/components/Button';
 import { Input } from '~/shared/components/Input';
 import { loginUserAction } from '~/shared/store/ducks/user/action';
@@ -31,6 +32,7 @@ export function Login() {
 
   const handleSubmitLogin = useCallback(
     (data: DataProps) => {
+      dispatch(getCategoryAction());
       dispatch(getMoviesTrendingAction());
       dispatch(getMoviesComingAction(1));
       dispatch(loginUserAction(data.username, data.password));
