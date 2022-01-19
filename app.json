@@ -5,7 +5,13 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "com.linsthi.movieflix"
+    }
   },
-  "name": "lead-movieflix"
+  "name": "lead-movieflix",
+  "android": {
+    "package": "com.linsthi.movieflix"
+  }
 }

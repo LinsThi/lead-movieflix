@@ -63,3 +63,7 @@ export const IconItem = styled(Icon).attrs<IconProps>(
 export const DrawerRoutes = {
   marginTop: 15,
 };
+
+export const DrawerButtonBottom = {
+  paddingBottom: 20,
+};
