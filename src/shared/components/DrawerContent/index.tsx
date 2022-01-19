@@ -95,7 +95,7 @@ export function DrawerContent(props: DrawerContentComponentProps) {
         </Drawer.Section>
       </DrawerContentScrollView>
 
-      <Drawer.Section>
+      <Drawer.Section style={S.DrawerButtonBottom}>
         <DrawerItem
           icon={() => IconItem('exit-to-app', 'materialCommunityIcons')}
           label={() => LabelItem('Sair')}
