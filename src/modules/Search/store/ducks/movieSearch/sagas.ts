@@ -1,7 +1,7 @@
 import { all, call, takeLatest, put, select } from 'redux-saga/effects';
 
 import type { AplicationState } from '~/@types/Entity/AplicationState';
-import { searchMovies } from '~/shared/services/movies';
+import { searchMovies } from '~/modules/Search/services/moviesSearch';
 
 import { getMoviesErrorAction, getMoviesSuccessAction } from './action';
 import type { GetMoviesProps } from './types';
@@ -18,15 +18,20 @@ interface ResponseGenerator {
 
 function* GetMoviesSagas(action: GetMoviesProps) {
   try {
+    const { categorySelected } = yield select(
+      (state: AplicationState) => state.movieCategory,
+    );
+
     const response: ResponseGenerator = yield call(
       searchMovies,
       action.payload.query,
       action.payload.page,
+      categorySelected.name,
     );
 
     if (response.status >= 200 && response.status < 300) {
       const { listMovies } = yield select(
-        (state: AplicationState) => state.movie,
+        (state: AplicationState) => state.movieSearch,
       );
 
       let allMovies = [];

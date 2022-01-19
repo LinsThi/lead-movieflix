@@ -34,3 +34,5 @@ export const NameMovie = styled(NewText).attrs(({ theme }) => ({
 `;
 
 export const Indicator = styled.ActivityIndicator``;
+
+export const ButtonMovie = styled.TouchableOpacity``;

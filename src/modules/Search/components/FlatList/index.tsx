@@ -1,10 +1,12 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThemeContext } from 'styled-components/native';
 
 import type { AplicationState } from '~/@types/Entity/AplicationState';
+import { getMoviesAction } from '~/modules/Search/store/ducks/movieSearch/action';
 import { GET_POSTER_PATH } from '~/shared/constants/api';
-import { getMoviesAction } from '~/shared/store/ducks/movie/action';
+import { MOVIE_INFO_SCREEN } from '~/shared/constants/routes';
 
 import * as S from './styles';
 
@@ -14,11 +16,12 @@ interface FlatMoviesProps {
 
 export function FlatList({ filterMovieName }: FlatMoviesProps) {
   const { listMovies, getLoading } = useSelector(
-    (state: AplicationState) => state.movie,
+    (state: AplicationState) => state.movieSearch,
   );
   const { Colors } = useContext(ThemeContext);
 
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const FoaterList = useCallback(
     ({ load }) => {
@@ -37,19 +40,23 @@ export function FlatList({ filterMovieName }: FlatMoviesProps) {
 
   const renderMovie = useCallback(({ item }: any) => {
     return (
-      <S.ContainerMovie>
-        <S.ImageMovie
-          source={{
-            uri: item.poster_path
-              ? `${GET_POSTER_PATH}${item.poster_path}`
-              : 'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg',
-          }}
-        />
+      <S.ButtonMovie
+        onPress={() => navigation.navigate(MOVIE_INFO_SCREEN, { movie: item })}
+      >
+        <S.ContainerMovie>
+          <S.ImageMovie
+            source={{
+              uri: item.poster_path
+                ? `${GET_POSTER_PATH}${item.poster_path}`
+                : 'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg',
+            }}
+          />
 
-        <S.ContainerMovieName>
-          <S.NameMovie>{item.title}</S.NameMovie>
-        </S.ContainerMovieName>
-      </S.ContainerMovie>
+          <S.ContainerMovieName>
+            <S.NameMovie>{item.title}</S.NameMovie>
+          </S.ContainerMovieName>
+        </S.ContainerMovie>
+      </S.ButtonMovie>
     );
   }, []);
 

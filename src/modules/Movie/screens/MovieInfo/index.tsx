@@ -27,7 +27,9 @@ export function MovieInfo() {
     let response;
     async function getKeyTrailer() {
       response = await searchMoviesTrailer(movie.id);
-      setKeyTrailer(response.data.results[0].key);
+      if (response.data.results.length > 0) {
+        setKeyTrailer(response.data.results[0].key);
+      }
     }
     getKeyTrailer();
   }, [movie.id]);
@@ -42,12 +44,20 @@ export function MovieInfo() {
     <S.Container>
       <S.ContainerPost>
         <S.ImageBackground
-          source={{ uri: `${GET_POSTER_PATH}${movie.backdrop_path}` }}
+          source={{
+            uri: movie.backdrop_path
+              ? `${GET_POSTER_PATH}${movie.backdrop_path}`
+              : 'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg',
+          }}
           blurRadius={7}
           resizeMode="cover"
         >
           <S.ImageMovie
-            source={{ uri: `${GET_POSTER_PATH}${movie.poster_path}` }}
+            source={{
+              uri: movie.poster_path
+                ? `${GET_POSTER_PATH}${movie.poster_path}`
+                : 'https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg',
+            }}
             resizeMode="contain"
           />
 
@@ -60,7 +70,7 @@ export function MovieInfo() {
       <S.ContainerInfo>
         <S.TextInfo>Descrição</S.TextInfo>
 
-        <S.TextOverview>{movie.overview}</S.TextOverview>
+        <S.TextOverview>{movie.overview || 'Sem informação'}</S.TextOverview>
       </S.ContainerInfo>
 
       <S.ContainerTrailer>
